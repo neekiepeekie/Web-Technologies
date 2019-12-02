@@ -1,0 +1,241 @@
+<html>
+	<head>
+		<style>
+            
+            * {
+                box-sizing: border-box;
+            }
+            
+            @font-face {
+                font-family: FuturaDemi;
+                src: url("FuturaPTDemi.otf");
+            }
+            
+            @font-face {
+                font-family: FuturaBook;
+                src: url("FuturaPTBook.otf");
+            }
+            
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .parallax {
+                background-attachment: fixed;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-position-x: 20px !important;
+                background-position-y: top;
+                width: 1255px;
+            }
+            
+            .bgimg-1 {
+                background-image: url("http://csci571.com/hw/hw3/images/snow1.jpg");
+                opacity: 10;
+                height: 1025px; 
+            }
+            
+            .bgimg-2 {
+                background-image: url("http://csci571.com/hw/hw3/images/snow6.jpg");
+                opacity: 10;
+                height: 850px;
+            }
+            
+            .website-name {
+                float:left;
+                color: #fff;
+                padding-left: 70px;
+                padding-top: 40px;
+                font-size: 40px;
+                letter-spacing: 5px;
+                font-family: FuturaDemi;
+            }
+            
+            a {
+				text-decoration: none;
+			}
+            
+            .menu-items {
+                float:left;
+                padding-top: 40px;
+            }
+            
+            ul
+			{
+    			list-style-type:none;
+			}
+
+			li
+			{
+				float:left;
+				text-align: center;
+				padding-left:25px;
+			}
+
+			li a
+			{
+				font-family: FuturaDemi;
+				font-size: 5px;
+			} 
+
+			.hyperLink
+			{
+				background-color:transparent;
+                font-size:15px;
+                color: #f7f7f7;
+                letter-spacing: 3px;
+			}
+            
+            .heading-1 {
+                font-size: 110px;
+                color: white;
+                text-align: center;
+                font-family: FuturaDemi;
+                margin: -30px;
+            }
+            
+            .detail-1 {
+                text-align: center;
+                color: white;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                letter-spacing: 1px;
+                line-height: 1.6;
+            }
+            
+            .caption span.border {
+                background-color: #fff;
+                padding: 20px 36px 20px 36px;
+                letter-spacing: 1px;
+                font-family: FuturaDemi;
+                font-size: 13px;
+            }
+            
+            .column {
+                float: left;
+                width: 50%;
+                padding: 5px 5px 30px;
+            }
+            
+            .row::after {
+                clear: both;
+                display: table;
+            }
+            
+            .page-2 {
+                padding: 90px 90px 80px 90px;
+                width: 1225px;
+            }
+            
+            .page-2 img {
+                width: 492px;
+                height: 492px;
+                object-fit: cover;
+            }
+            
+            .detail-2 {
+                text-align: left;
+                padding-left: 230px;
+                font-family: Arial, Helvetica, sans-serif;
+                color: dimgrey;
+                font-size: 15px;
+                line-height: 1.8;
+            }
+            
+            .detail-3 {
+                text-align: center;
+                color: white;
+                font-size: 18px;
+                font-family: Arial, Helvetica, sans-serif;
+                letter-spacing: 1.5px;
+                padding-top:310px;
+                line-height: 1.8;
+            }
+            
+            .page-end {
+                padding: 50px;
+            }
+            
+            
+		</style>
+	</head>
+	<body>
+        <div class="website" align="center">
+            
+            <div class="bgimg-1 parallax page-1">
+                <div class="website-name">SNOWBOARD CENTRAL</div>
+				<div class="menu-items">
+                    <ul>
+					   <li><a href="#home" target="_blank" class="hyperLink">HOME</a></li>
+                        <li><a href="#about" target="_blank" class="hyperLink">ABOUT</a></li>
+					   <li><a href="#gallery" target="_blank" class="hyperLink">GALLERY</a></li>
+					   <li><a href="#journal" target="_blank" class="hyperLink">JOURNAL</a></li>
+					   <li><a href="#contact" target="_blank" class="hyperLink">CONTACT</a></li>
+				    </ul>
+				</div>
+                <div style="padding-top: 290px;">
+                    <p class="heading-1">Bend the</p>
+                    <p class="heading-1">Mind</p>
+                </div>
+                <div style="padding-top: 80px;">
+                    <p class="detail-1">
+                        James Jantz is a snowboarder living in Jackson Hole, WY<br>
+                        and riding around the world. Lorem ipsum dolor sit amet<br>
+                        consectetuer adipiscing elit nam nidb. Nunc varius facilisis<br>
+                        eros sed erad in in velit quis arcu ornare laoreet.
+                    </p>
+                </div>
+                <div class="caption" style="padding:50px;text-align:center;">
+                    <span class="border grey">LEARN MORE</span>
+                </div>
+            </div>
+            
+            <div class="page-2">
+                <div class="images">
+                    <div class="row">
+                        <div class="column">
+                            <img src="http://csci571.com/hw/hw3/images/snow2.jpg" alt="Snow 2">
+                        </div>
+                        <div class="column">
+                            <img src="http://csci571.com/hw/hw3/images/snow3.jpg" alt="Snow 3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <img src="http://csci571.com/hw/hw3/images/snow4.jpg" alt="Snow 4">
+                        </div>
+                        <div class="column">
+                            <img src="http://csci571.com/hw/hw3/images/snow5.jpg" alt="Snow 5">
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-2">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetuer adipiscing elit nam nidb. Nunc varius <br>
+                        facilisis eros sed erad in in velit quis arcu ornare laoreet. Curabitur adipiscing luctus<br>
+                        massa. Integer ut purus ac augue commodo. Nunc nec mi eu justo tempor<br>
+                        consectetuer. Etiam vitae nisl. In diggnissim lacus ut ante.<br>
+                        <br>
+                        Photography coutesy of Carl Sutter.
+                    </p>
+                </div>
+                
+            </div>
+            
+            <div class="bgimg-2 parallax">
+                <div class="detail-3">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetuer adipiscing elit nam<br>
+                        nidb. Nunc varius facilisis eros sed erat in in velit quis arcu<br> 
+                        ornare laoreet.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="page-end"></div>
+        
+        </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "csci571hw8",
+  "version": "1.0.0",
+  "description": "CSCI 571 Homework 8 - NodeJS",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "divya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "ngeohash": "^0.6.0",
+    "path": "^0.12.7",
+    "request": "^2.88.0",
+    "url": "^0.11.0"
+  }
+}

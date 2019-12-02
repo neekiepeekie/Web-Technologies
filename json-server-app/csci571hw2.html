@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <title>Divya Ramesha - WebTech HW 4</title>
+        <style type="text/css">
+            
+            .heading {
+                text-align: center;
+                padding-top: 200px;
+            }
+            
+            .form-element {
+                text-align: center;
+                padding-top: 20px;
+            }
+        
+        </style>
+        <script type="application/javascript">
+            
+            function displayMovieList(jsonobj) {
+                
+                var headerData = jsonobj.Mainline.Table.Header.Data;
+                var data = jsonobj.Mainline.Table.Row;
+                if (data == null || data == "" || data == undefined || headerData == null || headerData == "" || headerData == undefined) {
+                    alert("Empty Data, Please enter valid file!!");
+                    return;
+                }
+                html = "<html><head><title>Highest-grossing films</title></head><body><table border='2' width='1140'><tr>";
+	
+                for(var i=0; i<headerData.length; i++) {
+                    html += "<th>" + headerData[i] + "</th>";
+                }
+                html += "</tr>";
+	
+                for(row in data) {
+            
+                    html += "<tr>";
+                    var movie_data = data[row];
+                    
+                    for(movie_key in movie_data) {
+                        
+                        if(movie_data[movie_key] == null || movie_data[movie_key] == "" || movie_data[movie_key] == undefined) {
+                            html += "<td style='height:24px'></td>";
+                            continue;
+                        }
+			
+                        if(movie_key =="Hubs") {
+                            var hub = movie_data[movie_key];
+                            for(innerdata in hub) {
+                                if(hub[innerdata] == null) {
+                                    html += "<td style='height:24px'></td>";
+                                    continue;
+                                }
+                                if(innerdata == "Hub") {
+                                    var hdata = hub[innerdata];
+                                    html += "<td style='width:220px;'><ul>"
+                                    if(hdata.length ==0) {
+                                        html += "<p>"+" "+"</p>";
+                                    } else {		
+                                        html += "<li><b>"+hdata[0]+"</b></li>";
+                                        for(i=1; i<hdata.length; i++) {
+                                            html += "<li>" + hdata[i] + "</li>";
+                                        }
+                                    }
+                                    html += "</ul></td>";
+                                } else {
+                                    html += "<td></td>";
+                                }
+                            }
+							
+                        } else if(movie_key == "HomePage") {
+                            html += "<td style='width:500px;'><a href='" + movie_data[movie_key] + "'>" + movie_data[movie_key] + "</a></td>";
+                        } else if(movie_key == "Logo") {
+                            html += "<td style='width:120px;'><center><img src='" + movie_data[movie_key] + "'  style='max-width:120px;'></center></td>";
+                        } else if(movie_key == "Title") {
+                            html += "<td style='width:60px;'>" + movie_data[movie_key] + "</td>" ;
+                        } else if(movie_key == "Year") {
+                            html += "<td style='width:60px;word-break: break-all;'>" + movie_data[movie_key] + "</td>" ;
+                        } else if(movie_key == "Gross") {
+                            html += "<td style='width:142px;word-break: break-all;'>" + movie_data[movie_key] + "</td>" ;
+                        } else {
+                            html += "<td style='width:100px;word-break: break-all;'>" + movie_data[movie_key] + "</td>" ;
+                        }
+                        
+                    }
+                    
+                    html += "</tr>"
+                    
+                }
+                
+                html += "</table></body></html>";
+                hWin = window.open("", "WebTech_HW_4", "height=900,width=1155");
+                hWin.document.write(html); 
+                hWin.document.close(); 
+            }
+            
+            function readJson(formEle) {
+                var fileName = formEle.jsonUrl.value;
+                if (fileName == "" || fileName == null || fileName == undefined) {
+                    alert("Please enter file name!!");
+                } else {
+                    var xmlrequest = null, jsonDoc = null, hWin = null;
+                    
+                    if (window.XMLHttpRequest) {
+                        xmlrequest = new XMLHttpRequest();
+                    } else {
+                        xmlrequest=new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    
+                    xmlrequest.open("GET", fileName, false);
+                    
+                    try {	
+			 	       xmlrequest.send();
+			 	       if(xmlrequest.readyState==4 && xmlrequest.status==404 ) {
+                           alert("We couldn't find the file you are looking for!!");
+                           return;
+                       }
+                        
+                        jsonDoc = xmlrequest.responseText;
+                        
+                        if(jsonDoc.length==0) {
+                            alert("The file is Empty!!");
+                            return;
+                        }
+                        jsonObj = JSON.parse(jsonDoc);       
+                    } catch(err) {
+                        alert("Please enter a valid JSON file!!");
+                        return;
+                    }
+                    
+                    if (window.ActiveXObject) { 
+                        if (jsonObj.parseError.errorCode != 0) {
+                            alert("Error parsing JSON!!")
+                        } else { 
+                            displayMovieList(jsonObj);
+                        }
+                    } else { 
+                        displayMovieList(jsonObj);
+                    } 
+                }
+            }
+        
+        </script>
+    </head>
+    <body>
+        <div>
+            <h2 class="heading">Enter URL for Highest-grossing films List JSON File</h2>
+            <form class="form-element" name="filmform" method="post">
+                <input type="text" maxLength="255" name="jsonUrl" size="40">
+                <br><br>
+                <input type="button" name="submit" value="Submit Query" onClick="readJson(this.form)">
+            </form> 
+        </div>
+    </body>
+</html>
